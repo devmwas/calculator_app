@@ -1,19 +1,17 @@
-import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Quiz from "./components/Quiz";
-import Results from "./components/Results";
+import NumbersComponent from "./components/NumbersComponent";
+import Operators from "./components/Operators";
+import WorkSpace from "./components/WorkSpace";
 
 function App() {
   return (
     <div className="md:w-1/3 mx-auto border-4">
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/quiz" element={<Quiz />} />
-        <Route path="/results" element={<Results />} />
-      </Routes>
-      {/* <Home /> */}
+          <WorkSpace />
+          <div className="flex justify-evenly">
+            <NumbersComponent />
+            <Operators />
+          </div>
       <Header />
     </div>
   );
