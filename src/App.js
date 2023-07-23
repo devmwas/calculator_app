@@ -7,7 +7,7 @@ function App() {
     <div className="md:w-1/2 lg:w-1/3 mx-auto border-gray-400 border-2 mt-4">
       {/* The workspace will display our calculations */}
         <WorkSpace />
-        <div className="flex">
+        <div className="flex" style={{height: 500}}>
           <NumbersComponent />
           <Operators />
         </div>
