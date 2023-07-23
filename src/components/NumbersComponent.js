@@ -2,17 +2,18 @@ import React from 'react'
 import NumberComponent from './NumberComponent'
 
 function NumbersComponent() {
-    const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '.', '9', '=']
+    const numbers = ['9', '8', '7', '6', '5', '4', '3', '2', '1', '.', '0', '=']
     const numberComponents = numbers.map((number, index) => {
         return (
-            <div key={index} className='w-1/3 my-2 flex justify-around'>
+            // NumberComponent(number)
+            <div key={index} className='w-1/3 flex'>
                 {NumberComponent(number)}
             </div>
         )
     })
 
   return (
-    <div className='w-3/5 bg-slate-500 flex flex-wrap my-4 p-4 justify-center'>
+    <div className='w-4/5 flex flex-wrap mt-4'>
         {numberComponents}
     </div>
   )

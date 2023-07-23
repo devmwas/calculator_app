@@ -11,7 +11,7 @@ const workspaceSlice = createSlice({
             // We dont want to add unnecessary zeros infront of our operands
             if(state.currentOperand === '0' & action.payload === '0') return state 
 
-            // We don't want to add many decimal points
+            // We don't want to add more than one decimal points
             if(state.currentOperand?.includes('.') & action.payload === '.') return state
 
             return {
@@ -44,13 +44,19 @@ const workspaceSlice = createSlice({
             }          
         },
         getResult: (state) => {
-            if(state.currentOperand == null & state.firstOperand == null & state.operator == null) {
+            if(state.currentOperand == null || state.firstOperand == null || state.operator == null) {
                 return state
             }
             return {
                 operator: null,
                 currentOperand: evaluate(state),
                 firstOperand: null
+            }
+        },
+        deleteOperand: state => {
+            return {
+                ...state,
+                currentOperand: null
             }
         }
     }
@@ -76,9 +82,11 @@ const evaluate = (state) => {
         case "/":
             result =  first / current
             break
+        default:
+            return state
     }
-    return result
+    return result.toString()
 }
 
 export default workspaceSlice.reducer
-export const { addDigit, chooseOperator, getResult } = workspaceSlice.actions
+export const { addDigit, chooseOperator, getResult, deleteOperand } = workspaceSlice.actions

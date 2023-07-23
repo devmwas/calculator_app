@@ -8,10 +8,10 @@ function WorkSpace() {
 
   return (
     <div className='border-2 m-2' style={{minHeight: 100}}>
-        <div className='text-start text-2xl p-2 break-words' style={{minHeight: 50}}>
+        <div className='text-start text-2xl p-2 break-words' style={{minHeight: 60}}>
             { firstOperand }{' '}{ operator }
         </div>
-        <div className='text-end text-4xl p-2 break-words' style={{minHeight: 50}}>
+        <div className='text-end text-4xl p-2 break-words' style={{minHeight: 60}}>
             { currentOperand }
         </div>
     </div>

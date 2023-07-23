@@ -8,18 +8,18 @@ function NumberComponent(number) {
   
   return (
     number === '=' ?
-    <Button color="success" variant="contained" size='large'
+    <Button color="success" variant="contained" fullWidth style={{borderRadius: '0%'}}
         onClick={() => dispatch(getResult())}
     >
-      <div className='text-4xl'>
+      <div className='text-lg md:text-4xl'>
         {number}
       </div>
     </Button>
     :
-    <Button color="success" variant="contained" size='large'
+    <Button color="success" variant="contained" fullWidth style={{borderRadius: '0%'}} 
         onClick={() => dispatch(addDigit(number))}
     >
-      <div className='text-4xl'>
+      <div className='text-lg md:text-4xl'>
         {number}
       </div>
     </Button>
