@@ -37,9 +37,7 @@ const workspaceSlice = createSlice({
             }
 
             // Here we prevent users from adding two consecutive operators
-            if(state.currentOperand === '+' || state.currentOperand === '-' || 
-            state.currentOperand === '*'
-            || state.currentOperand === '/') {
+            if(state.currentOperand === '+' || state.currentOperand === '-') {
                 // We barr users from updating the first operator with multiplication or division
                 if(action.payload === '*' || action.payload === '/') {
                     return state          
@@ -52,6 +50,13 @@ const workspaceSlice = createSlice({
 
             // Updating the first operand of our operation
             if(state.firstOperand == null) {
+                // We prevent the user from adding a period as the firstOperand
+                if(state.currentOperand === '+.' || state.currentOperand === '-.' || 
+                state.currentOperand === '.') {
+                    return state
+                }
+
+                // Now we can safely update the first operand
                 return {
                     firstOperand: state.currentOperand,
                     currentOperand: null,
@@ -79,6 +84,7 @@ const workspaceSlice = createSlice({
             if(state.currentOperand == null || state.firstOperand == null || state.operator == null) {
                 return state
             }
+            
             return {
                 operator: null,
                 currentOperand: evaluate(state),
