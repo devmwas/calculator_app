@@ -9,10 +9,14 @@ function WorkSpace() {
   return (
     <div className='border-2 m-2' style={{minHeight: 100}}>
         <div className='text-start text-2xl p-2 break-words' style={{minHeight: 60}}>
-            { firstOperand }{' '}{ operator }
+            {/* We add commas to separate the digits for improved readability */}
+            { firstOperand == null ? null : 
+                parseFloat(firstOperand).toLocaleString('en-US')}{' '}{operator}
         </div>
         <div className='text-end text-4xl p-2 break-words' style={{minHeight: 60}}>
-            { currentOperand }
+            {/* We add commas to separate the digits for improved readability */}
+            { currentOperand == null ? 
+                currentOperand : parseFloat(currentOperand).toLocaleString('en-US')}
         </div>
     </div>
   )
