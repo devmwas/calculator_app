@@ -16,7 +16,9 @@ function WorkSpace() {
         <div className='text-end text-4xl p-2 break-words' style={{minHeight: 60}}>
             {/* We add commas to separate the digits for improved readability */}
             { currentOperand == null ? 
-                currentOperand : parseFloat(currentOperand).toLocaleString('en-US')}
+                // We don't show the NaN when a user starts with a plus or minus
+                currentOperand : isNaN(parseFloat(currentOperand)) ? currentOperand :
+                parseFloat(currentOperand).toLocaleString('en-US')}
         </div>
     </div>
   )
