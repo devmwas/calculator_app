@@ -4,13 +4,16 @@ import WorkSpace from "./components/WorkSpace";
 
 function App() {
   return (
-    <div className="md:w-1/2 lg:w-1/3 mx-auto border-gray-400 border-2 mt-4">
+    <div
+      className="md:w-1/2 lg:w-1/3 mx-auto border-orange-500 border-8"
+      style={{ maxHeight: "100vh" }}
+    >
       {/* The workspace will display our calculations */}
-        <WorkSpace />
-        <div className="flex" style={{height: 500}}>
-          <NumbersComponent />
-          <Operators />
-        </div>
+      <WorkSpace />
+      <div className="flex" style={{ height: "50vh" }}>
+        <NumbersComponent />
+        <Operators />
+      </div>
     </div>
   );
 }
